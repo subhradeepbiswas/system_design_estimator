@@ -14,6 +14,9 @@ public class TrafficServiceImpl implements TrafficService{
 		int daysInMonth = 30;
 		int daysInWeek = 7;
 		
+		long totalReqs = trafficSpecsDto.getReqcnt1()+ trafficSpecsDto.getReqcnt2()
+						+trafficSpecsDto.getReqcnt3()+ trafficSpecsDto.getReqcnt4();
+		
 		switch (trafficSpecsDto.getFrqncy())
 		{
 		     case "Minute":
@@ -33,7 +36,16 @@ public class TrafficServiceImpl implements TrafficService{
 		     ;
 		}
 		
-		return null;
+		long totalReqPerSec = totalReqs/periodInSec;
+		long readReq = (totalReqPerSec * trafficSpecsDto.getReadRatio())/
+				(trafficSpecsDto.getReadRatio() + trafficSpecsDto.getWriteRatio());
+		long writeReq = totalReqPerSec - readReq;
+		String readReqFormula = "Read requests = (Total Requests per second X read ratio)/(read ratio + write ration)";
+		String writeReqFormula = "Write requests = (Total Requests per second - Read requests)";
+		
+		Traffic traffic = new Traffic(readReq, writeReq, readReqFormula, writeReqFormula, trafficSpecsDto.getFrqncy());
+		
+		return traffic;
 	}
 
 }

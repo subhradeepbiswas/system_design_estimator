@@ -2,6 +2,13 @@
     pageEncoding="UTF-8" isELIgnored="false" session="true" %>
 <html>
 <body>
-<P>  ${name} - ${surname} </P>
+<P>  ${traffic.readReqFormula} 
+	<br>
+	 ${traffic.writeReqFormula}
+	 <br> 
+	 ${traffic.readReqs} per second
+	 <br>
+	 ${traffic.writeReqs} per second
+</P>
 </body>
 </html>

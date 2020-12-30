@@ -11,13 +11,45 @@
 
 	<SCRIPT language="javascript">
 	
-		function submitDetails(){
+		function submitDetails(tableID){
+	
+			var table = document.getElementById(tableID);
+			var rowCount = table.rows.length;
+			
 		    var frqncy = $("#frqncy").val();
 		    var select1 = $("#select1").val();
 		    var avglength1 = $("#avglength1").val();
 		    var reqcnt1 = $("#reqcnt1").val();
+		    var readRatio = $("#readRatio").val();
+		    var writeRatio = $("#writeRatio").val();
+		    if (rowCount == 3){
+			    var select2 = $("#select2").val();
+			    var avglength2 = $("#avglength2").val();
+			    var reqcnt2 = $("#reqcnt2").val();
+	
+			    $.post('hardwareestimates', { frqncy : frqncy , select1 : select1, avglength1 : avglength1, reqcnt1 : reqcnt1,
+			    							select2 : select2, avglength2 : avglength2, reqcnt2 : reqcnt2, readRatio : readRatio, writeRatio : writeRatio}, function(data) {
+			        $('#results').html(data);   //.hide().slideDown('slow')
+			    } );
+			    return;
+			}
+		    if (rowCount == 4){
+			    var select2 = $("#select2").val();
+			    var avglength2 = $("#avglength2").val();
+			    var reqcnt2 = $("#reqcnt2").val();
+			    var select3 = $("#select3").val();
+			    var avglength3 = $("#avglength3").val();
+			    var reqcnt3 = $("#reqcnt3").val();
+	
+			    $.post('hardwareestimates', { frqncy : frqncy , select1 : select1, avglength1 : avglength1, reqcnt1 : reqcnt1,
+			    							select2 : select2, avglength2 : avglength2, reqcnt2 : reqcnt2,
+			    							select3 : select3, avglength3 : avglength3, reqcnt3 : reqcnt3, readRatio : readRatio, writeRatio : writeRatio}, function(data) {
+			        $('#results').html(data);   //.hide().slideDown('slow')
+			    } );
+			    return;
+			}
 		    
-		    $.post('hardwareestimates', { frqncy : frqncy , select1 : select1, avglength1 : avglength1, reqcnt1 : reqcnt1}, function(data) {
+		    $.post('hardwareestimates', { frqncy : frqncy , select1 : select1, avglength1 : avglength1, reqcnt1 : reqcnt1, readRatio : readRatio, writeRatio : writeRatio}, function(data) {
 		        $('#results').html(data);   //.hide().slideDown('slow')
 		    } );
 		    
@@ -45,7 +77,7 @@
 			
 			var cell2 = row.insertCell(1);
 			var element2 = document.createElement("select");
-			//element1.type = "checkbox";
+			//element2.type = "number";
 			element2.name="select"+rowCount;
 			//window.alert(element2.name);
 			cell2.appendChild(element2);
@@ -65,14 +97,14 @@
 
 			var cell3 = row.insertCell(2);
 			var element3 = document.createElement("input");
-			element3.type = "text";
+			element3.type = "number";
 			element3.name = "avglength"+rowCount;
 			element3.value=100
 			cell3.appendChild(element3);
 
 			var cell4 = row.insertCell(3);
 			var element4 = document.createElement("input");
-			element4.type = "text";
+			element4.type = "number";
 			element4.name = "reqcnt"+rowCount;
 			element4.value=100
 			cell4.appendChild(element4);
@@ -146,15 +178,15 @@
 		            <option>Video</option>
 	        	</select>
 	        </TD>
-			<TD> <input id="avglength1" name="avglength1" type="text" value=100> </TD>
-			<TD> <input id="reqcnt1" name="reqcnt1" type="text" value=100> </TD>
+			<TD> <input id="avglength1" name="avglength1" type="number" value=100> </TD>
+			<TD> <input id="reqcnt1" name="reqcnt1" type="number" value=100> </TD>
 		</TR>
 	</TABLE>
     <br>
-    "Read:Write" ratio for your system = <input id="readRatio" name="readRatio" type="text" value=99>:<input id="writeRatio" name="writeRatio" type="text" value=1> 
+    "Read:Write" ratio for your system = <input id="readRatio" name="readRatio" type="number" value=99>:<input id="writeRatio" name="writeRatio" type="number" value=1> 
     <br>
     <br>
-    <input type="submit" value="Calculate" onclick="submitDetails()"/>
+    <input type="submit" value="Calculate" onclick="submitDetails('contentTable')"/>
 	<!--  </form> -->
 	<div id="results" />
 	

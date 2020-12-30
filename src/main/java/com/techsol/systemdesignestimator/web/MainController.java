@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.techsol.systemdesignestimator.model.Traffic;
 import com.techsol.systemdesignestimator.service.TrafficService;
@@ -28,18 +29,16 @@ public class MainController {
 	}
 	
 	@PostMapping(value="/hardwareestimates")
-	public String getEstimates(TrafficSpecificationDto trafficSpecDto, Model model) {
-		System.out.println(trafficSpecDto.getFrqncy());
-		System.out.println(trafficSpecDto.getSelect1());
-		System.out.println(trafficSpecDto.getAvglength1());
-		System.out.println(trafficSpecDto.getReqcnt1());
+	public ModelAndView getEstimates(TrafficSpecificationDto trafficSpecDto) {
 		
 		Traffic traffic = trafficService.calculateTraffic(trafficSpecDto);
 		
-		model.addAttribute("name", "Subh");
-		model.addAttribute("surname", "Biswas");
+		ModelAndView mav = new ModelAndView();
 		
-		return "TrafficEstimate";
+		mav.addObject(traffic);
+		mav.setViewName("TrafficEstimate");
+		
+		return mav;
 		
 	}
 }
