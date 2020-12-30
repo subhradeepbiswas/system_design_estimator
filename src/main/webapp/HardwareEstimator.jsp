@@ -22,11 +22,12 @@
 		    var reqcnt1 = $("#reqcnt1").val();
 		    var readRatio = $("#readRatio").val();
 		    var writeRatio = $("#writeRatio").val();
+		    
 		    if (rowCount == 3){
 			    var select2 = $("#select2").val();
 			    var avglength2 = $("#avglength2").val();
 			    var reqcnt2 = $("#reqcnt2").val();
-	
+			    
 			    $.post('hardwareestimates', { frqncy : frqncy , select1 : select1, avglength1 : avglength1, reqcnt1 : reqcnt1,
 			    							select2 : select2, avglength2 : avglength2, reqcnt2 : reqcnt2, readRatio : readRatio, writeRatio : writeRatio}, function(data) {
 			        $('#results').html(data);   //.hide().slideDown('slow')
@@ -77,7 +78,7 @@
 			
 			var cell2 = row.insertCell(1);
 			var element2 = document.createElement("select");
-			//element2.type = "number";
+			element2.id = "select"+rowCount;
 			element2.name="select"+rowCount;
 			//window.alert(element2.name);
 			cell2.appendChild(element2);
@@ -99,6 +100,7 @@
 			var element3 = document.createElement("input");
 			element3.type = "number";
 			element3.name = "avglength"+rowCount;
+			element3.id = "avglength"+rowCount;
 			element3.value=100
 			cell3.appendChild(element3);
 
@@ -106,6 +108,8 @@
 			var element4 = document.createElement("input");
 			element4.type = "number";
 			element4.name = "reqcnt"+rowCount;
+			element4.id = "reqcnt"+rowCount;
+			//window.alert(element4.name);
 			element4.value=100
 			cell4.appendChild(element4);
 
@@ -137,7 +141,6 @@
 					rowCount--;
 					i--;
 				}
-
 
 			}
 			}catch(e) {

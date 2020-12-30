@@ -30,6 +30,7 @@ public class MainController {
 	
 	@PostMapping(value="/hardwareestimates")
 	public ModelAndView getEstimates(TrafficSpecificationDto trafficSpecDto) {
+		System.out.println(trafficSpecDto.getReqcnt1() +" "+trafficSpecDto.getReqcnt2());
 		
 		Traffic traffic = trafficService.calculateTraffic(trafficSpecDto);
 		
