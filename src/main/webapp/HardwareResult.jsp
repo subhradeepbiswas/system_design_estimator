@@ -11,5 +11,15 @@
 	 <br>
 	 Write requests per second = ${traffic.writeReqs}
 </P>
+<br>
+<br>
+<h3> Storage estimates </h3>
+<P>  ${storage.consideration} 
+	 <br>
+	 ${storage.formula}
+	 <br> 
+	 Total storage required for 10 years = ${storage.estimatedStorage}
+	 
+</P>
 </body>
 </html>

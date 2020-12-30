@@ -9,7 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.techsol.systemdesignestimator.model.Bandwidth;
+import com.techsol.systemdesignestimator.model.Memory;
+import com.techsol.systemdesignestimator.model.Storage;
 import com.techsol.systemdesignestimator.model.Traffic;
+import com.techsol.systemdesignestimator.service.BandwidthService;
+import com.techsol.systemdesignestimator.service.BandwidthServiceImpl;
+import com.techsol.systemdesignestimator.service.MemoryService;
+import com.techsol.systemdesignestimator.service.MemoryServiceImpl;
+import com.techsol.systemdesignestimator.service.StorageService;
+import com.techsol.systemdesignestimator.service.StorageServiceImpl;
 import com.techsol.systemdesignestimator.service.TrafficService;
 import com.techsol.systemdesignestimator.service.TrafficServiceImpl;
 import com.techsol.systemdesignestimator.web.dto.TrafficSpecificationDto;
@@ -18,9 +27,15 @@ import com.techsol.systemdesignestimator.web.dto.TrafficSpecificationDto;
 public class MainController {
 	
 	private TrafficService trafficService;
+	private StorageService storageService;
+	private MemoryService memoryService;
+	private BandwidthService bandwidthService;
 	
 	public MainController(){
 		this.trafficService = new TrafficServiceImpl();
+		this.storageService = new StorageServiceImpl();
+		this.memoryService = new MemoryServiceImpl();
+		this.bandwidthService = new BandwidthServiceImpl();
 	}
 	
 	@RequestMapping("/")
@@ -33,13 +48,19 @@ public class MainController {
 		System.out.println(trafficSpecDto.getReqcnt1() +" "+trafficSpecDto.getReqcnt2());
 		
 		Traffic traffic = trafficService.calculateTraffic(trafficSpecDto);
+		Storage storage = storageService.calculateStorage(trafficSpecDto);
+		Memory memory = memoryService.calculateMemory(trafficSpecDto);
+		Bandwidth bandwidth = bandwidthService.calculateBandwidth(trafficSpecDto);
 		
-		ModelAndView mav = new ModelAndView();
+		ModelAndView hardwareResultMV = new ModelAndView();
 		
-		mav.addObject(traffic);
-		mav.setViewName("TrafficEstimate");
+		hardwareResultMV.addObject("traffic", traffic);
+		hardwareResultMV.addObject("storage", storage);
+		hardwareResultMV.addObject("memory", memory);
+		hardwareResultMV.addObject("bandwidth", bandwidth);
+		hardwareResultMV.setViewName("HardwareResult");
 		
-		return mav;
+		return hardwareResultMV;
 		
 	}
 }
