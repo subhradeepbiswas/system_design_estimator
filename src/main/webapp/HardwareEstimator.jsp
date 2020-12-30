@@ -10,6 +10,33 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 	<SCRIPT language="javascript">
+
+		function updateText(selectId){
+			//window.alert("I am in");
+			var lastChar = selectId.substr(selectId.length - 1);
+			var elemId = 'avglength'+lastChar;
+			var labelId = 'unit'+lastChar;
+
+			//window.alert(elemId);
+			
+			if (document.getElementById(selectId).value == "Video"){
+				//window.alert(document.getElementById(elemId).value);
+				document.getElementById(elemId).value = 1;
+				document.getElementById(labelId).innerHTML = "Minute";
+			} 
+			if (document.getElementById(selectId).value == "Image"){
+				document.getElementById(elemId).value = 200;
+				document.getElementById(labelId).innerHTML = "KB";
+			}
+			if (document.getElementById(selectId).value == "Text (UTF-8)"){
+				document.getElementById(elemId).value = 100;
+				document.getElementById(labelId).innerHTML = "Chars";
+			}
+			if (document.getElementById(selectId).value == "Text (ASCII)"){
+				document.getElementById(elemId).value = 100;
+				document.getElementById(labelId).innerHTML = "Chars";
+			}
+		}
 	
 		function submitDetails(tableID){
 	
@@ -80,6 +107,7 @@
 			var element2 = document.createElement("select");
 			element2.id = "select"+rowCount;
 			element2.name="select"+rowCount;
+			element2.onchange=function(){updateText(element2.id);};
 			//window.alert(element2.name);
 			cell2.appendChild(element2);
 
@@ -103,7 +131,12 @@
 			element3.id = "avglength"+rowCount;
 			element3.value=100
 			cell3.appendChild(element3);
-
+			var itemLabel = document.createElement("Label");
+			itemLabel.id = "unit"+rowCount;
+		    itemLabel.setAttribute("for", element3);
+		    itemLabel.innerHTML = "Chars";
+		    cell3.appendChild(itemLabel);
+		  	
 			var cell4 = row.insertCell(3);
 			var element4 = document.createElement("input");
 			element4.type = "number";
@@ -174,14 +207,14 @@
 		</TR>
 		<TR>
 			<TD> <INPUT type="checkbox" name="chk"/> </TD>
-			<TD><select id="select1" name="select1">
+			<TD><select id="select1" name="select1" onchange="updateText('select1')">
 		            <option>Text (ASCII)</option>
 		            <option>Text (UTF-8)</option>
 		            <option>Image</option>
 		            <option>Video</option>
 	        	</select>
 	        </TD>
-			<TD> <input id="avglength1" name="avglength1" type="number" value=100> </TD>
+			<TD> <input id="avglength1" name="avglength1" type="number" value=100><label id="unit1" for="avglength1">Chars</label></TD>
 			<TD> <input id="reqcnt1" name="reqcnt1" type="number" value=100> </TD>
 		</TR>
 	</TABLE>
