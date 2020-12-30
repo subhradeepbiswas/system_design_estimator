@@ -39,7 +39,7 @@ public class TrafficServiceImpl implements TrafficService{
 		}
 		
 		long totalWritePerSec = totalReqs/ periodInSec;
-		long readReq = (totalReqs/ periodInSec) * (trafficSpecsDto.getReadRatio()/trafficSpecsDto.getWriteRatio());
+		long readReq = (long) (((double) totalReqs/ (double) periodInSec) * ((double) trafficSpecsDto.getReadRatio()/ (double) trafficSpecsDto.getWriteRatio()));
 		
 		String readReqFormula = "Read requests per second = Total Requests per second X (read ratio/write ratio)";
 		String writeReqFormula = "Write requests per second = Total Requests from above table / # of seconds in frequency field";
