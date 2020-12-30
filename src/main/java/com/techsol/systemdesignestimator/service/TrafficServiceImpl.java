@@ -17,33 +17,37 @@ public class TrafficServiceImpl implements TrafficService{
 		long totalReqs = trafficSpecsDto.getReqcnt1()+ trafficSpecsDto.getReqcnt2()
 						+trafficSpecsDto.getReqcnt3()+ trafficSpecsDto.getReqcnt4();
 		
+		System.out.println(trafficSpecsDto.getFrqncy());
+		
 		switch (trafficSpecsDto.getFrqncy())
 		{
 		     case "Minute":
 		    	 periodInSec = sec;
-		     ;
+		    	 break;
 		     case "Hour":
 		    	 periodInSec = sec*min;
-		     ;
+		    	 break;
 		     case "Day":
 		    	 periodInSec = sec*min*hrs;
-		     ;
+		    	 break;
 		     case "Week":
 		    	 periodInSec = sec*min*hrs*daysInWeek;
-		     ;
+		    	 break;
 		     case "Month":
 		    	 periodInSec = sec*min*hrs*daysInMonth;
-		     ;
+		    	 break;
 		}
 		
-		long totalReqPerSec = totalReqs/periodInSec;
-		long readReq = (totalReqPerSec * trafficSpecsDto.getReadRatio())/
-				(trafficSpecsDto.getReadRatio() + trafficSpecsDto.getWriteRatio());
-		long writeReq = totalReqPerSec - readReq;
-		String readReqFormula = "Read requests = (Total Requests per second X read ratio)/(read ratio + write ration)";
-		String writeReqFormula = "Write requests = (Total Requests per second - Read requests)";
+		long totalWritePerSec = totalReqs/ periodInSec;
+		long readReq = (totalReqs/ periodInSec) * (trafficSpecsDto.getReadRatio()/trafficSpecsDto.getWriteRatio());
 		
-		Traffic traffic = new Traffic(readReq, writeReq, readReqFormula, writeReqFormula, trafficSpecsDto.getFrqncy());
+		String readReqFormula = "Read requests per second = Total Requests per second X (read ratio/write ratio)";
+		String writeReqFormula = "Write requests per second = Total Requests from above table / # of seconds in frequency field";
+		
+		System.out.println(totalWritePerSec);
+		System.out.println(readReq);
+		
+		Traffic traffic = new Traffic(readReq, totalWritePerSec, readReqFormula, writeReqFormula, trafficSpecsDto.getFrqncy());
 		
 		return traffic;
 	}

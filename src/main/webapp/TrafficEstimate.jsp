@@ -2,13 +2,14 @@
     pageEncoding="UTF-8" isELIgnored="false" session="true" %>
 <html>
 <body>
-<P>  ${traffic.readReqFormula} 
+<h3> Traffic estimates </h3>
+<P>  ${traffic.writeReqFormula} 
 	<br>
-	 ${traffic.writeReqFormula}
+	 ${traffic.readReqFormula}
 	 <br> 
-	 ${traffic.readReqs} per second
+	 Read requests per second = ${traffic.readReqs}
 	 <br>
-	 ${traffic.writeReqs} per second
+	 Write requests per second = ${traffic.writeReqs}
 </P>
 </body>
 </html>

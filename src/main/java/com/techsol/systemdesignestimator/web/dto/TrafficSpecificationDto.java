@@ -7,23 +7,23 @@ public class TrafficSpecificationDto {
 	private String frqncy;
 	private String select1; 
 	private String avglength1;
-	private int reqcnt1 = 0;
+	private long reqcnt1 = 0;
 	private String select2; 
 	private String avglength2;
-	private int reqcnt2 = 0;
+	private long reqcnt2 = 0;
 	private String select3; 
 	private String avglength3;
-	private int reqcnt3 = 0;
+	private long reqcnt3 = 0;
 	private String select4; 
 	private String avglength4;
-	private int reqcnt4 = 0;
+	private long reqcnt4 = 0;
 	private int readRatio;
 	private int writeRatio;
 	
 	public TrafficSpecificationDto() {
 		
 	}
-	public TrafficSpecificationDto(String frqncy, String select1, String avglength1, int reqcnt1, int readRatio, int writeRatio) {
+	public TrafficSpecificationDto(String frqncy, String select1, String avglength1, long reqcnt1, int readRatio, int writeRatio) {
 		this.frqncy = frqncy;
 		this.select1 = select1; 
 		this.avglength1 = avglength1;
@@ -31,8 +31,8 @@ public class TrafficSpecificationDto {
 		this.readRatio = readRatio;
 		this.writeRatio = writeRatio;
 	}
-	public TrafficSpecificationDto(String frqncy, String select1, String avglength1, int reqcnt1,
-								String select2, String avglength2, int reqcnt2, int readRatio, int writeRatio) {
+	public TrafficSpecificationDto(String frqncy, String select1, String avglength1, long reqcnt1,
+								String select2, String avglength2, long reqcnt2, int readRatio, int writeRatio) {
 		this.frqncy = frqncy;
 		this.select1 = select1; 
 		this.avglength1 = avglength1;
@@ -43,9 +43,9 @@ public class TrafficSpecificationDto {
 		this.readRatio = readRatio;
 		this.writeRatio = writeRatio;
 	}
-	public TrafficSpecificationDto(String frqncy, String select1, String avglength1, int reqcnt1,
-								String select2, String avglength2, int reqcnt2,
-								String select3, String avglength3, int reqcnt3, int readRatio, int writeRatio) {
+	public TrafficSpecificationDto(String frqncy, String select1, String avglength1, long reqcnt1,
+								String select2, String avglength2, long reqcnt2,
+								String select3, String avglength3, long reqcnt3, int readRatio, int writeRatio) {
 		this.frqncy = frqncy;
 		this.select1 = select1; 
 		this.avglength1 = avglength1;
@@ -77,10 +77,10 @@ public class TrafficSpecificationDto {
 	public void setAvglength1(String avglength1) {
 		this.avglength1 = avglength1;
 	}
-	public int getReqcnt1() {
+	public long getReqcnt1() {
 		return reqcnt1;
 	}
-	public void setReqcnt1(int reqcnt1) {
+	public void setReqcnt1(long reqcnt1) {
 		this.reqcnt1 = reqcnt1;
 	}
 	public String getSelect2() {
@@ -95,10 +95,10 @@ public class TrafficSpecificationDto {
 	public void setAvglength2(String avglength2) {
 		this.avglength2 = avglength2;
 	}
-	public int getReqcnt2() {
+	public long getReqcnt2() {
 		return reqcnt2;
 	}
-	public void setReqcnt2(int reqcnt2) {
+	public void setReqcnt2(long reqcnt2) {
 		this.reqcnt2 = reqcnt2;
 	}
 	public String getSelect3() {
@@ -113,10 +113,10 @@ public class TrafficSpecificationDto {
 	public void setAvglength3(String avglength3) {
 		this.avglength3 = avglength3;
 	}
-	public int getReqcnt3() {
+	public long getReqcnt3() {
 		return reqcnt3;
 	}
-	public void setReqcnt3(int reqcnt3) {
+	public void setReqcnt3(long reqcnt3) {
 		this.reqcnt3 = reqcnt3;
 	}
 	public String getSelect4() {
@@ -131,10 +131,10 @@ public class TrafficSpecificationDto {
 	public void setAvglength4(String avglength4) {
 		this.avglength4 = avglength4;
 	}
-	public int getReqcnt4() {
+	public long getReqcnt4() {
 		return reqcnt4;
 	}
-	public void setReqcnt4(int reqcnt4) {
+	public void setReqcnt4(long reqcnt4) {
 		this.reqcnt4 = reqcnt4;
 	}
 	public int getReadRatio() {
