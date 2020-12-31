@@ -4,11 +4,15 @@
 <html>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <head>
-	<meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata|Montserrat&display=swap" rel="stylesheet">
+	<meta content="width=device-width, initial-scale=1" name="viewport" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
 	<title>Hardware Estimator</title>
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+	<link rel="stylesheet"  href="/landing.css">
+	
 	<SCRIPT language="javascript">
 
 		function updateText(selectId){
@@ -183,8 +187,12 @@
 
 	</SCRIPT>
 </head>
-<body style="margin-left:2.5em">
-	<br>
+<body>
+	<header>
+	    <h1><u>Fillup the details of the 'Write' requests below</u></h1>
+	    <!-- <span class="menu"><i class="material-icons" style="font-size: 48px;">menu</i></span>  -->
+	</header>
+	<div class='content'>
 	<!--  <form name="f1" method="post" action="hardwareestimates"> -->
     Frequency*  <select id="frqncy" name="frqncy">
           <option>Minute</option>
@@ -194,11 +202,11 @@
           <option>Month</option>
        </select> 
        <br>
-       <h5> Write requests contains : &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; 
+       <h3> Write requests contains : </h3> 
        
-       <INPUT id=addbtn type="button" value="Add Row" onclick="addRow('contentTable')" />
-		<INPUT id=dltbtn type="button" value="Delete Row" onclick="deleteRow('contentTable')" />  </h5>
-       <TABLE id="contentTable" width="850px" border="0">
+       <INPUT class="button1" id=addbtn type="button" value="Add Row" onclick="addRow('contentTable')" />
+		<INPUT class="button1" id=dltbtn type="button" value="Delete Row" onclick="deleteRow('contentTable')" /> 
+       <TABLE id="contentTable" width="950px" border="0">
 		<TR>
 			<TD> Select row to delete </TD>
 			<TD> Request content type </TD>
@@ -222,13 +230,17 @@
     "Read:Write" ratio for your system = <input id="readRatio" name="readRatio" type="number" value=99>:<input id="writeRatio" name="writeRatio" type="number" value=1> 
     <br>
     <br>
-    <input type="submit" value="Calculate" onclick="submitDetails('contentTable')"/>
+    <input class="button" type="submit" value="Calculate" onclick="submitDetails('contentTable')"/>
 	<!--  </form> -->
 	<br>
-    <br>
-	<div id="results" />
+	</div>
+    
+    <div id="results" />
 	
 	
+	<footer>
+	Copywrite details
+	</footer>
 	
 	<%-- To display selected value from dropdown list. --%>
     <% 
