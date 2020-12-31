@@ -58,7 +58,8 @@ public class StorageServiceImpl implements StorageService{
 		StringBuilder storageTextBuilder = new StringBuilder();
 		int unitIdentifier = 1;
 		String unitText = "";
-		while (bytesInTenYears > 1000) {
+		
+		while (true) {
 			switch (unitIdentifier) {
 			case 1:
 				unitText = " Bytes";
@@ -80,22 +81,33 @@ public class StorageServiceImpl implements StorageService{
 				break;
 			}
 			
-			storageTextBuilder.insert(0, (bytesInTenYears%1000)+unitText);
-			bytesInTenYears = bytesInTenYears/1000;
-			unitIdentifier++;
+			if (unitText == " PB ") {
+				storageTextBuilder.insert(0, bytesInTenYears+unitText);
+				break;
+			} else {
+				if (bytesInTenYears >= 1000) {
+					storageTextBuilder.insert(0, (bytesInTenYears%1000)+unitText);
+					bytesInTenYears = bytesInTenYears/1000;
+					unitIdentifier++;
+				} else {
+					storageTextBuilder.insert(0, bytesInTenYears+unitText);
+					break;
+				}
+			}
 		}
-		String consideration = "We have made below Assumptions/considerations to calculate storage estimate: \n"
-				+ "1 char with ASCII encoding = 1 byte \n"
-				+ "1 char with UTF-8 encoding = 4 bytes \n"
-				+ "1 min long video = 50 MB \n";
-		String formula = "Calculation steps and formula used for Storage Estimation:\n"
-				+ " 1. Total incoming bytes in given period (TIB) =  avg. length of ASCII Text X # of such Requests\n"
-				+ "                                          + 4 X avg. length UTF-8 Text X # of such Requests\n"
-				+ "                                          + 1000 X avg. size of image X # of such Requests\n"
-				+ "                                          + 50000000 X avg. size of video X # of such Requests\n"
-				+ " 2. Convert the input frequency to second (IFS) \n"
-				+ " 3. Calculate Incoming bytes per second (i.e. TIB/IFS) \n"
-				+ " 4. Calculate Incoming bytes for 10 years (Output)";
+		
+		String consideration = "We have made below Assumptions/considerations to calculate storage estimate: <br>"
+				+ "1 char with ASCII encoding = 1 byte <br>"
+				+ "1 char with UTF-8 encoding = 4 bytes <br>"
+				+ "1 min long video = 50 MB <br>";
+		String formula = "Calculation steps and formula used for Storage Estimation:<br>"
+				+ " 1. Total incoming bytes in given period (TIB) =  avg. length of ASCII Text X # of such Requests<br>"
+				+ " &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;+ 4 X avg. length UTF-8 Text X # of such Requests<br>"
+				+ " &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;+ 1000 X avg. size of image X # of such Requests<br>"
+				+ " &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;+ 50000000 X avg. size of video X # of such Requests<br>"
+				+ " 2. Convert the input frequency to second (IFS) <br>"
+				+ " 3. Calculate Incoming bytes per second (i.e. TIB/IFS) <br>"
+				+ " 4. Calculate Incoming bytes for 10 years (Output) <br> ";
 		
 		Storage storage = new Storage(consideration, formula, storageTextBuilder.toString());
 		return storage;
