@@ -24,7 +24,7 @@ public class StorageServiceImpl implements StorageService{
 		trafficTypeToByteMap.put("Text (UTF-8)", 4);
 		trafficTypeToByteMap.put("Image", 1000);
 		trafficTypeToByteMap.put("Video", 50000000);
-		trafficTypeToByteMap.put(null, 50000000);
+		trafficTypeToByteMap.put(null, 0);
 		
 		switch (trafficSpecsDto.getFrqncy())
 		{
@@ -59,7 +59,7 @@ public class StorageServiceImpl implements StorageService{
 		int unitIdentifier = 1;
 		String unitText = "";
 		
-		while (true) {
+		while (bytesInTenYears > 0) {
 			switch (unitIdentifier) {
 			case 1:
 				unitText = " Bytes";
@@ -109,7 +109,7 @@ public class StorageServiceImpl implements StorageService{
 				+ " 3. Calculate Incoming bytes per second (i.e. TIB/IFS) <br>"
 				+ " 4. Calculate Incoming bytes for 10 years (Output) <br> ";
 		
-		Storage storage = new Storage(consideration, formula, storageTextBuilder.toString());
+		Storage storage = new Storage(consideration, formula, storageTextBuilder.toString(), bytesPerSec);
 		return storage;
 	}
 

@@ -4,11 +4,13 @@ public class Storage {
 	private String consideration;
 	private String formula;
 	private String estimatedStorage;
+	private long bytesWrittenPerSec;
 	
-	public Storage(String consideration, String formula, String storageText) {
+	public Storage(String consideration, String formula, String storageText, long bytesPerSec) {
 		this.consideration = consideration;
 		this.formula = formula;
 		this.estimatedStorage = storageText;
+		this.bytesWrittenPerSec = bytesPerSec;
 	}
 
 	public String getConsideration() {
@@ -34,5 +36,9 @@ public class Storage {
 	public void setEstimatedStorage(String estimatedStorage) {
 		this.estimatedStorage = estimatedStorage;
 	};
+	
+	public long getBytesWrittenPerSec() {
+		return bytesWrittenPerSec;
+	}
 	
 }

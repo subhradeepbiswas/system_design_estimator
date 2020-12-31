@@ -49,8 +49,8 @@ public class MainController {
 		
 		Traffic traffic = trafficService.calculateTraffic(trafficSpecDto);
 		Storage storage = storageService.calculateStorage(trafficSpecDto);
-		Memory memory = memoryService.calculateMemory(trafficSpecDto);
-		Bandwidth bandwidth = bandwidthService.calculateBandwidth(trafficSpecDto);
+		Memory memory = memoryService.calculateMemory(trafficSpecDto, storage.getBytesWrittenPerSec());
+		Bandwidth bandwidth = bandwidthService.calculateBandwidth(storage.getBytesWrittenPerSec(), memory.getBytesReadPerSec());
 		
 		ModelAndView hardwareResultMV = new ModelAndView();
 		
