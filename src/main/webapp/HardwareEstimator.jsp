@@ -243,6 +243,7 @@
 		</TR>
 		<TR>
 			<!-- <TD> <INPUT type="checkbox" name="chk"/> </TD> -->
+			<TD></TD>
 			<TD><select id="select1" name="select1" onchange="updateText('select1')">
 		            <option>Text (ASCII)</option>
 		            <option>Text (UTF-8)</option>

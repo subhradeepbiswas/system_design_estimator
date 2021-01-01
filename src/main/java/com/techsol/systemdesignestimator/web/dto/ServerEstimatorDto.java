@@ -5,13 +5,15 @@ public class ServerEstimatorDto {
     private int qps;
     private int qpsPerc;
     private int cores;
+    private int replicationFactor;
     
-	public ServerEstimatorDto(double reqProcessingTime, int qps, int qpsPerc, int cores) {
+	public ServerEstimatorDto(double reqProcessingTime, int qps, int qpsPerc, int cores, int replicationFactor) {
 		super();
 		this.reqProcessingTime = reqProcessingTime;
 		this.qps = qps;
 		this.qpsPerc = qpsPerc;
 		this.cores = cores;
+		this.replicationFactor = replicationFactor;
 	}
 	
 	public double getReqProcessingTime() {
@@ -26,6 +28,9 @@ public class ServerEstimatorDto {
 	public int getCores() {
 		return cores;
 	}
-    
+
+	public int getReplicationFactor() {
+		return replicationFactor;
+	}
     
 }

@@ -11,8 +11,9 @@
 			    var qps = $("#qps").val();
 			    var qpsPerc = $("#qpsPerc").val();
 			    var cores = $("#cores").val();
+			    var replicationFactor = $("#repfactor").val();
 	
-			    $.post('calcserverestimates', { reqProcessingTime : reqProcessingTime , qps : qps, qpsPerc : qpsPerc, cores : cores}, function(data) {
+			    $.post('calcserverestimates', { reqProcessingTime : reqProcessingTime , qps : qps, qpsPerc : qpsPerc, cores : cores, replicationFactor : replicationFactor}, function(data) {
 			        $('#serverestimate').html(data);
 			    } );
 			}
@@ -25,6 +26,7 @@
 		Query Per Second (QPS): <input id="qps" name="qps" type="number" min="0" value=5000> <br> 
 		Guarantee the Avg. Processing Time for <input id="qpsPerc" name="qpsPerc" type="number" min="0" max="100" value=95> % of the total QPS <br>
 		Capacity of each server is <input id="cores" name="cores" type="number" min="1" value=32> CPU cores <br>
+		Replication factor (To ensure service durability): <input id="repfactor" name="repfactor" type="number" min="0" value=3><br>
 		<br>
 		<input class="button" type="submit" value="Calculate" onClick="submitServerDetails()"/>
 	</div>

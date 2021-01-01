@@ -3,11 +3,13 @@ package com.techsol.systemdesignestimator.service;
 public class ServerEstimate {
 	private String formula;
 	private int serverRequired;
+	private int totalServerRequiredWithReplica;
 	
-	public ServerEstimate(String formula, int serverRequired) {
+	public ServerEstimate(String formula, int serverRequired, int totalServerRequiredWithReplica) {
 		super();
 		this.formula = formula;
 		this.serverRequired = serverRequired;
+		this.totalServerRequiredWithReplica = totalServerRequiredWithReplica;
 	}
 	
 	public String getFormula() {
@@ -22,6 +24,8 @@ public class ServerEstimate {
 	public void setServerRequired(int serverRequired) {
 		this.serverRequired = serverRequired;
 	}
-	
+	public int getTotalServerRequiredWithReplica() {
+		return totalServerRequiredWithReplica;
+	}
 	
 }

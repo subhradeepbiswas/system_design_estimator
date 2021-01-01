@@ -8,7 +8,9 @@
 		<h3><u>Server estimates </u></h3>
 		<P>  ${server.formula} 
 			 <br>
-			 # of Servers Required = ${server.serverRequired}
+			 Minimum # of Servers Required (to achieve specific performance) = ${server.serverRequired}
+			 <br>
+			 Total # of Servers Required (with replicas) = ${server.totalServerRequiredWithReplica}
 			 <br>
 		</P>
 	</div>
