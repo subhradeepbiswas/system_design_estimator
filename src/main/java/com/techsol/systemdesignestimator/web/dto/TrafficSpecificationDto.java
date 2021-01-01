@@ -19,20 +19,22 @@ public class TrafficSpecificationDto {
 	private long reqcnt4 = 0;
 	private int readRatio;
 	private int writeRatio;
+	private int cachePercent;
 	
 	public TrafficSpecificationDto() {
 		
 	}
-	public TrafficSpecificationDto(String frqncy, String select1, int avglength1, long reqcnt1, int readRatio, int writeRatio) {
+	public TrafficSpecificationDto(String frqncy, String select1, int avglength1, long reqcnt1, int readRatio, int writeRatio, int cachePercent) {
 		this.frqncy = frqncy;
 		this.select1 = select1; 
 		this.avglength1 = avglength1;
 		this.reqcnt1 = reqcnt1;
 		this.readRatio = readRatio;
 		this.writeRatio = writeRatio;
+		this.cachePercent = cachePercent;
 	}
 	public TrafficSpecificationDto(String frqncy, String select1, int avglength1, long reqcnt1,
-								String select2, int avglength2, long reqcnt2, int readRatio, int writeRatio) {
+								String select2, int avglength2, long reqcnt2, int readRatio, int writeRatio, int cachePercent) {
 		this.frqncy = frqncy;
 		this.select1 = select1; 
 		this.avglength1 = avglength1;
@@ -42,10 +44,11 @@ public class TrafficSpecificationDto {
 		this.reqcnt2 = reqcnt2;
 		this.readRatio = readRatio;
 		this.writeRatio = writeRatio;
+		this.cachePercent = cachePercent;
 	}
 	public TrafficSpecificationDto(String frqncy, String select1, int avglength1, long reqcnt1,
 								String select2, int avglength2, long reqcnt2,
-								String select3, int avglength3, long reqcnt3, int readRatio, int writeRatio) {
+								String select3, int avglength3, long reqcnt3, int readRatio, int writeRatio, int cachePercent) {
 		this.frqncy = frqncy;
 		this.select1 = select1; 
 		this.avglength1 = avglength1;
@@ -58,6 +61,7 @@ public class TrafficSpecificationDto {
 		this.reqcnt3 = reqcnt3;
 		this.readRatio = readRatio;
 		this.writeRatio = writeRatio;
+		this.cachePercent = cachePercent;
 	}
 	public String getFrqncy() {
 		return frqncy;
@@ -148,6 +152,13 @@ public class TrafficSpecificationDto {
 	}
 	public void setWriteRatio(int writeRatio) {
 		this.writeRatio = writeRatio;
+	}
+	
+	public void setCachePercent(int cachePercent) {
+		this.cachePercent = cachePercent;
+	}
+	public int getCachePercent() {
+		return cachePercent;
 	}
 	
 	

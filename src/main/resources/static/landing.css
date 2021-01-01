@@ -11,6 +11,59 @@ body {
   margin: 0;
 }
 
+input[type="number"] {
+   width:105px;
+}
+
+.error-tip {
+  background-color: #fce4e4;
+  border: 1px solid #fcc2c3;
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  display: inline;
+  color: #cc0033;
+  float: left;
+  font-weight: bold;
+  line-height: 24px;
+  position: relative;
+  padding: 7px 11px 4px;
+  margin-left: 17px;
+  // Left Arrow Styling Starts Here
+  &:after, &:before {
+    content: '';
+    border: 7px solid transparent;
+    position: absolute;
+    top: 11px;
+  }
+  &:after {
+    border-right: 7px solid #fce4e4;
+    left: -14px;
+  }
+  &:before {
+    border-right: 7px solid #fcc2c3;
+    left: -15px;
+  }
+}
+
+.error.input-group {
+  label {
+    color: #cc0033;
+    font-weight: bold;
+  }
+  input {
+    border: 2px solid #cc0033;
+    line-height: 37px;
+    outline: none;
+  }
+  .status {
+    display: none;
+  }
+  .error-tip {
+    display: inline;
+  }
+} 
+
 .content {
   padding-left: 10%;
   padding-right: 33%;

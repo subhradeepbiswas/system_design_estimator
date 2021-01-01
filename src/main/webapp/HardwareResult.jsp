@@ -11,7 +11,7 @@
 			 <br>
 			 Write requests per second = ${traffic.writeReqs}
 			 <br> 
-			 Read requests per second = ${traffic.readReqs}
+			 Query (Read requests) per second (QPS) = ${traffic.readReqs}
 		</P>
 		<br>
 		<h3><u>Storage estimates</u></h3>
@@ -37,7 +37,7 @@
 	</div>
 	
 	<footer>
-		Copywrite details
+		Copyright details
 	</footer>
 </body>
 </html>

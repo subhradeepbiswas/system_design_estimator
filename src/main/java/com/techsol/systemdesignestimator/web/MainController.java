@@ -46,6 +46,7 @@ public class MainController {
 	@PostMapping(value="/hardwareestimates")
 	public ModelAndView getEstimates(TrafficSpecificationDto trafficSpecDto) {
 		System.out.println(trafficSpecDto.getReqcnt1() +" "+trafficSpecDto.getReqcnt2());
+		System.out.println(trafficSpecDto.getCachePercent());
 		
 		Traffic traffic = trafficService.calculateTraffic(trafficSpecDto);
 		Storage storage = storageService.calculateStorage(trafficSpecDto);

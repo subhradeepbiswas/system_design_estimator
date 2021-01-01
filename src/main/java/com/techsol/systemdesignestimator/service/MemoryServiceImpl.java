@@ -9,7 +9,8 @@ public class MemoryServiceImpl implements MemoryService{
 	public Memory calculateMemory(TrafficSpecificationDto trafficSpecsDto, long incomingBytesPerSec) {
 		System.out.println(incomingBytesPerSec);
 		long bytesReadPerSec = incomingBytesPerSec * (trafficSpecsDto.getReadRatio()/trafficSpecsDto.getWriteRatio());
-		long cacheInBytePerDay =  (bytesReadPerSec * 3600 * 24) / 5;
+		//System.out.println("Inside memory service" + trafficSpecsDto.getCachePercent());
+		long cacheInBytePerDay =  (long) ((bytesReadPerSec * 3600 * 24) *  (double) (trafficSpecsDto.getCachePercent()/ 100.00));
 		StringBuilder cacheTextBuilder = new StringBuilder();
 		int unitIdentifier = 1;
 		String unitText = "";
@@ -52,10 +53,10 @@ public class MemoryServiceImpl implements MemoryService{
 		}
 		
 		String consideration = "Consideration/Assumption: <br>"
-							+ "In order to estimate the cache requrement for our system, we are following 80-20 rule, <br>"
-							+ "meaning 20% of the total data read per day serve 80% of the daily read requests. <br>"
-							+ "Hence, we will cache 20% on the data read per day <br>";
-		String formula = "Formula for Cache Estimation: 20% X (incoming bytes per second X (read ratio/write ratio) X 3600 X 24) <br>";
+							+ "Cache requirement calculation is done based on the data read daily, <br>"
+							+ "meaning if the new data is read today, yesterday's data is evicted <br> "
+							+ "from the cache to accommodate the today's data. <br>";
+		String formula = "Formula for Cache Estimation: Cache requirement % X (incoming bytes per second X (read ratio/write ratio) X 3600 X 24) <br>";
 		
 		Memory memory = new Memory(consideration, formula, cacheTextBuilder.toString(), bytesReadPerSec);
 		

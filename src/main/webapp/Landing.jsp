@@ -34,7 +34,7 @@
 	</form>
 	</div>
 	<footer>
-	Copywrite details
+	Copyright details
 	</footer>
 	<script type="text/javascript">
 	 function openPage(pageURL)

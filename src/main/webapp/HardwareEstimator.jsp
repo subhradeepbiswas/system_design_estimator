@@ -53,6 +53,13 @@
 		    var reqcnt1 = $("#reqcnt1").val();
 		    var readRatio = $("#readRatio").val();
 		    var writeRatio = $("#writeRatio").val();
+		    var cachePercent = $("#cachePercent").val();
+
+		    if (cachePercent > 100 || cachePercent < 0){
+		    	rangeError = "0 >= valid input <= 100";
+		        document.getElementById("range_error").innerHTML = rangeError;
+		        return;
+			}
 		    
 		    if (rowCount == 3){
 			    var select2 = $("#select2").val();
@@ -60,7 +67,7 @@
 			    var reqcnt2 = $("#reqcnt2").val();
 			    
 			    $.post('hardwareestimates', { frqncy : frqncy , select1 : select1, avglength1 : avglength1, reqcnt1 : reqcnt1,
-			    							select2 : select2, avglength2 : avglength2, reqcnt2 : reqcnt2, readRatio : readRatio, writeRatio : writeRatio}, function(data) {
+			    							select2 : select2, avglength2 : avglength2, reqcnt2 : reqcnt2, readRatio : readRatio, writeRatio : writeRatio, cachePercent : cachePercent}, function(data) {
 			        $('#results').html(data);   //.hide().slideDown('slow')
 			    } );
 			    return;
@@ -75,13 +82,33 @@
 	
 			    $.post('hardwareestimates', { frqncy : frqncy , select1 : select1, avglength1 : avglength1, reqcnt1 : reqcnt1,
 			    							select2 : select2, avglength2 : avglength2, reqcnt2 : reqcnt2,
-			    							select3 : select3, avglength3 : avglength3, reqcnt3 : reqcnt3, readRatio : readRatio, writeRatio : writeRatio}, function(data) {
+			    							select3 : select3, avglength3 : avglength3, reqcnt3 : reqcnt3, readRatio : readRatio, writeRatio : writeRatio, cachePercent : cachePercent}, function(data) {
+			        $('#results').html(data);   //.hide().slideDown('slow')
+			    } );
+			    return;
+			}
+
+		    if (rowCount == 5){
+			    var select2 = $("#select2").val();
+			    var avglength2 = $("#avglength2").val();
+			    var reqcnt2 = $("#reqcnt2").val();
+			    var select3 = $("#select3").val();
+			    var avglength3 = $("#avglength3").val();
+			    var reqcnt3 = $("#reqcnt3").val();
+			    var select4 = $("#select4").val();
+			    var avglength4 = $("#avglength4").val();
+			    var reqcnt4 = $("#reqcnt4").val();
+	
+			    $.post('hardwareestimates', { frqncy : frqncy , select1 : select1, avglength1 : avglength1, reqcnt1 : reqcnt1,
+			    							select2 : select2, avglength2 : avglength2, reqcnt2 : reqcnt2,
+			    							select3 : select3, avglength3 : avglength3, reqcnt3 : reqcnt3,
+			    							select4 : select4, avglength4 : avglength4, reqcnt4 : reqcnt4, readRatio : readRatio, writeRatio : writeRatio, cachePercent : cachePercent}, function(data) {
 			        $('#results').html(data);   //.hide().slideDown('slow')
 			    } );
 			    return;
 			}
 		    
-		    $.post('hardwareestimates', { frqncy : frqncy , select1 : select1, avglength1 : avglength1, reqcnt1 : reqcnt1, readRatio : readRatio, writeRatio : writeRatio}, function(data) {
+		    $.post('hardwareestimates', { frqncy : frqncy , select1 : select1, avglength1 : avglength1, reqcnt1 : reqcnt1, readRatio : readRatio, writeRatio : writeRatio, cachePercent : cachePercent}, function(data) {
 		        $('#results').html(data);   //.hide().slideDown('slow')
 		    } );
 		    
@@ -227,7 +254,10 @@
 		</TR>
 	</TABLE>
     <br>
-    "Read:Write" ratio for your system = <input id="readRatio" name="readRatio" type="number" value=99>:<input id="writeRatio" name="writeRatio" type="number" value=1> 
+    "Read:Write" ratio for your system = <input id="readRatio" name="readRatio" type="number" value=99> <b>:</b> <input id="writeRatio" name="writeRatio" type="number" value=1> 
+    <br>
+    Cache Requirement: <input id="cachePercent" name="cachePercent" type="number" min="0" max="100" value=20> % of the total read requests to be cached
+    <div class="error"><p id="range_error"></p></div>
     <br>
     <br>
     <input class="button" type="submit" value="Calculate" onclick="submitDetails('contentTable')"/>
@@ -239,7 +269,7 @@
 	
 	
 	<footer>
-	Copywrite details
+	Copyright details
 	</footer>
 	
 	<%-- To display selected value from dropdown list. --%>
