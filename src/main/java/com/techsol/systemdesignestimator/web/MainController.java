@@ -17,10 +17,14 @@ import com.techsol.systemdesignestimator.service.BandwidthService;
 import com.techsol.systemdesignestimator.service.BandwidthServiceImpl;
 import com.techsol.systemdesignestimator.service.MemoryService;
 import com.techsol.systemdesignestimator.service.MemoryServiceImpl;
+import com.techsol.systemdesignestimator.service.ServerEstimate;
+import com.techsol.systemdesignestimator.service.ServerEstimatorService;
+import com.techsol.systemdesignestimator.service.ServerEstimatorServiceImpl;
 import com.techsol.systemdesignestimator.service.StorageService;
 import com.techsol.systemdesignestimator.service.StorageServiceImpl;
 import com.techsol.systemdesignestimator.service.TrafficService;
 import com.techsol.systemdesignestimator.service.TrafficServiceImpl;
+import com.techsol.systemdesignestimator.web.dto.ServerEstimatorDto;
 import com.techsol.systemdesignestimator.web.dto.TrafficSpecificationDto;
 
 @Controller
@@ -30,12 +34,14 @@ public class MainController {
 	private StorageService storageService;
 	private MemoryService memoryService;
 	private BandwidthService bandwidthService;
+	private ServerEstimatorService serverEstService;
 	
 	public MainController(){
 		this.trafficService = new TrafficServiceImpl();
 		this.storageService = new StorageServiceImpl();
 		this.memoryService = new MemoryServiceImpl();
 		this.bandwidthService = new BandwidthServiceImpl();
+		this.serverEstService = new ServerEstimatorServiceImpl();
 	}
 	
 	@RequestMapping("/")
@@ -63,5 +69,15 @@ public class MainController {
 		
 		return hardwareResultMV;
 		
+	}
+	
+	@PostMapping(value="/calcserverestimates")
+	public ModelAndView getServerEstimates(ServerEstimatorDto serverEstimatorDto) {
+		ServerEstimate serverEstimate = serverEstService.calculateServerRequirement(serverEstimatorDto);
+		ModelAndView serverEstimateMV = new ModelAndView();
+		
+		serverEstimateMV.addObject("server", serverEstimate);
+		serverEstimateMV.setViewName("ServerEstimate");
+		return serverEstimateMV;
 	}
 }

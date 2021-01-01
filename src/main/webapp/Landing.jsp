@@ -25,6 +25,13 @@
 	    <input class="button" type="button" value="Hardware Estimates" name="HardwareEstimates"
 	     onclick="openPage('HardwareEstimator.jsp')"/>
 	    </p>
+	    <p>	
+	    <h3>This service estimates <br>
+	    (1) the number of servers you would need to guarantee performance while serving any number of QPS (Read requests) <br>
+	    (2) the number of simultaneous visitors you can serve with a guaranteed performance with your current infrastructure (no. of servers)</h3>
+	    <input class="button" type="button" value="Ensure Performance" name="EnsurePerformance"
+	     onclick="openPage('EnsurePerformance.jsp')" />
+		</p>
 	    <br>
 	    <p>	
 	    <h3>This service estimates the number of instances for every service to meet the system's availability requirement </h3>
