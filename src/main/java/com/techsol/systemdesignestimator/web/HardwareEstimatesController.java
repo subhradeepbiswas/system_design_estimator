@@ -11,13 +11,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.techsol.systemdesignestimator.model.Bandwidth;
 import com.techsol.systemdesignestimator.model.Memory;
+import com.techsol.systemdesignestimator.model.ServerEstimate;
 import com.techsol.systemdesignestimator.model.Storage;
 import com.techsol.systemdesignestimator.model.Traffic;
 import com.techsol.systemdesignestimator.service.BandwidthService;
 import com.techsol.systemdesignestimator.service.BandwidthServiceImpl;
 import com.techsol.systemdesignestimator.service.MemoryService;
 import com.techsol.systemdesignestimator.service.MemoryServiceImpl;
-import com.techsol.systemdesignestimator.service.ServerEstimate;
 import com.techsol.systemdesignestimator.service.ServerEstimatorService;
 import com.techsol.systemdesignestimator.service.ServerEstimatorServiceImpl;
 import com.techsol.systemdesignestimator.service.StorageService;
@@ -28,20 +28,18 @@ import com.techsol.systemdesignestimator.web.dto.ServerEstimatorDto;
 import com.techsol.systemdesignestimator.web.dto.TrafficSpecificationDto;
 
 @Controller
-public class MainController {
+public class HardwareEstimatesController {
 	
 	private TrafficService trafficService;
 	private StorageService storageService;
 	private MemoryService memoryService;
 	private BandwidthService bandwidthService;
-	private ServerEstimatorService serverEstService;
 	
-	public MainController(){
+	public HardwareEstimatesController(){
 		this.trafficService = new TrafficServiceImpl();
 		this.storageService = new StorageServiceImpl();
 		this.memoryService = new MemoryServiceImpl();
 		this.bandwidthService = new BandwidthServiceImpl();
-		this.serverEstService = new ServerEstimatorServiceImpl();
 	}
 	
 	@RequestMapping("/")
@@ -71,13 +69,4 @@ public class MainController {
 		
 	}
 	
-	@PostMapping(value="/calcserverestimates")
-	public ModelAndView getServerEstimates(ServerEstimatorDto serverEstimatorDto) {
-		ServerEstimate serverEstimate = serverEstService.calculateServerRequirement(serverEstimatorDto);
-		ModelAndView serverEstimateMV = new ModelAndView();
-		
-		serverEstimateMV.addObject("server", serverEstimate);
-		serverEstimateMV.setViewName("ServerEstimate");
-		return serverEstimateMV;
-	}
 }

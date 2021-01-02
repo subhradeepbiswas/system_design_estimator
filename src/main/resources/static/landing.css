@@ -77,6 +77,10 @@ input[type="number"] {
   color: #f3f3ef;
 }
 
+a {
+	color: #FF7F50;
+}
+
 .button {
   display: block;
   padding: 20px;

@@ -46,6 +46,9 @@
 		    <br>
 		    <input class="button1" type="submit" value="Submit">
 		</form>
+		<br>
+		For better understanding on this topic, refer to : <a href="https://servebolt.com/articles/calculate-how-many-simultaneous-website-visitors/"> Article by Erlend Eide, CEO of Servebolt </a>
+		
 	</div>
 	<div id="targetpage" />
 	

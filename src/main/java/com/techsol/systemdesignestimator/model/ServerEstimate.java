@@ -1,4 +1,4 @@
-package com.techsol.systemdesignestimator.service;
+package com.techsol.systemdesignestimator.model;
 
 public class ServerEstimate {
 	private String formula;
