@@ -15,7 +15,11 @@ public class MemoryServiceImpl implements MemoryService{
 		int unitIdentifier = 1;
 		String unitText = "";
 		
-		while (cacheInBytePerDay > 0) {
+		if (cacheInBytePerDay < 1) {
+			cacheTextBuilder.append("0 Byte");
+		}
+		
+		while (cacheInBytePerDay >= 1) {
 			switch (unitIdentifier) {
 			case 1:
 				unitText = " Bytes";
