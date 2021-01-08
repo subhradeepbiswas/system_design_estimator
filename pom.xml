@@ -11,6 +11,7 @@
 	<groupId>com.techsol.systemdesign</groupId>
 	<artifactId>system-design-estimator</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>system-design-estimator</name>
 	<description>Calculates estimates to design software systems</description>
 

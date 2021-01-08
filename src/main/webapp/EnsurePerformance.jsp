@@ -48,9 +48,11 @@
 		</form>
 		<br>
 		For better understanding on this topic, refer to : <a href="https://servebolt.com/articles/calculate-how-many-simultaneous-website-visitors/"> Article by Erlend Eide, CEO of Servebolt </a>
+		<br>
+		<div id="targetpage" > </div>
 		
 	</div>
-	<div id="targetpage" />
+	
 	
 	<footer>
 	Copyright details

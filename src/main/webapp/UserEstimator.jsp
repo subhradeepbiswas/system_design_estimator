@@ -32,6 +32,5 @@
 	
 	<div id='userestimate' />
 	
-	
 </body>
 </html>

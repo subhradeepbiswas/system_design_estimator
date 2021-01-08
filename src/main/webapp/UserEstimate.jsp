@@ -15,8 +15,5 @@
 		</P>
 	</div>
 	
-	<footer>
-	Copyright details
-	</footer>
 </body>
 </html>
