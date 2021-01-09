@@ -35,8 +35,8 @@
 	    <br>
 	    <p>	
 	    <h3>This service estimates the number of instances for every service to meet the system's availability requirement </h3>
-	    <input class="button" type="button" value="Ensure Availability" name="EnsureAvailability"
-	     onclick="openPage('EnsureAvailability.jsp')" />
+	    <input class="button" type="button" value="Estimate Availability" name="EnsureAvailability"
+	     onclick="openPage('EstimateAvailability.jsp')" />
 		</p>
 	</form>
 	</div>

@@ -269,16 +269,10 @@
     
     <div id="results" />
 	
-	
 	<footer>
 	Copyright details
 	</footer>
 	
-	<%-- To display selected value from dropdown list. --%>
-    <% 
-            String s=request.getParameter("frqncy");
-            
-    %>
 </body>
 </html>
 
