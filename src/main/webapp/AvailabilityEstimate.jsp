@@ -13,6 +13,8 @@
 			<br>
 			Availability = ${availability.result}
 			<br> 
+			Yearly downtime = ${availability.outage}
+			<br>
 		</P>
 	</div>
 
