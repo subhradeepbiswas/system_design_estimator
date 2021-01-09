@@ -16,16 +16,16 @@ public class AvailabilityEstimatorServiceImpl implements AvailabilityEstimatorSe
 		
 		for (ArchSpecificationDto component: archSpecs) {
 			if (begin) {
-				temp = (1-Math.pow((1-component.getAvgAvailability()), component.getInstanceCount()));
+				temp = (1-Math.pow((1-component.getAvgAvailability()/100.00), component.getInstanceCount()));
 				begin = false;
 			} else {
 				calculationDetails.append("X <br>");
-				temp = temp * (1-Math.pow((1-component.getAvgAvailability()), component.getInstanceCount())) * 100;
+				temp = temp * (1-Math.pow((1-component.getAvgAvailability()/100.00), component.getInstanceCount())) ;
 			}
-			calculationDetails.append("1 - (1 - "+component.getAvgAvailability()+"^"+component.getInstanceCount()+" (for "+component.getServiceName()+") <br>");
+			calculationDetails.append("1 - (1 - "+component.getAvgAvailability()+")^"+component.getInstanceCount()+" (for "+component.getServiceName()+") <br>");
 		}
-		
-		result = begin == false ? temp : 0.0000;
+		calculationDetails.append("X 100");
+		result = begin == false ? temp * 100.00: 0.0000;
 		Availability availability = new Availability(result, calculationDetails.toString());
 		return availability;
 	}

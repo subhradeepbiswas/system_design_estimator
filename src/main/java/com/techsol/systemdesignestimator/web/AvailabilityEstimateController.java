@@ -32,7 +32,7 @@ public class AvailabilityEstimateController {
 		int partCnt = jsonObject.length();
 		for (int i=0; i<partCnt; i++) {
 			JSONObject compSpec = jsonObject.getJSONObject(Integer.toString(i));
-			ArchSpecificationDto partSpecDto = new ArchSpecificationDto(compSpec.getString("serviceName"), Integer.parseInt(compSpec.getString("avgAvailability")), Integer.parseInt(compSpec.getString("instanceCount")));
+			ArchSpecificationDto partSpecDto = new ArchSpecificationDto(compSpec.getString("serviceName"), Double.parseDouble(compSpec.getString("avgAvailability")), Integer.parseInt(compSpec.getString("instanceCount")));
 			archSpecList.add(partSpecDto);
 		}
 		

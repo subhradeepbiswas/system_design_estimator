@@ -2,13 +2,14 @@ package com.techsol.systemdesignestimator.web.dto;
 
 public class ArchSpecificationDto {
     private String serviceName;
-    private Integer avgAvailability, instanceCount;
+    private double avgAvailability;
+    private int instanceCount;
     
     public ArchSpecificationDto() {
 		
 	}
     
-	public ArchSpecificationDto(String serviceName, Integer avgAvailability, Integer instanceCount) {
+	public ArchSpecificationDto(String serviceName, double avgAvailability, int instanceCount) {
 		super();
 		this.serviceName = serviceName;
 		this.avgAvailability = avgAvailability;
@@ -21,16 +22,16 @@ public class ArchSpecificationDto {
 	public void setServiceName(String serviceName) {
 		this.serviceName = serviceName;
 	}
-	public Integer getAvgAvailability() {
+	public double getAvgAvailability() {
 		return avgAvailability;
 	}
-	public void setAvgAvailability(Integer avgAvailability) {
+	public void setAvgAvailability(double avgAvailability) {
 		this.avgAvailability = avgAvailability;
 	}
-	public Integer getInstanceCount() {
+	public int getInstanceCount() {
 		return instanceCount;
 	}
-	public void setInstanceCount(Integer instanceCount) {
+	public void setInstanceCount(int instanceCount) {
 		this.instanceCount = instanceCount;
 	}
 

@@ -169,10 +169,13 @@
 	</TABLE>
     <br>
   	<input class="button" type="submit" value="Calculate" onclick="submitDetails('compTable')"/>
+
   	<br>
+	For better understanding on this topic, refer to : <a href="https://www.eventhelix.com/RealtimeMantra/FaultHandling/system_reliability_availability.htm"> System Reliability and Availability </a>
+	<br>
+	
+	<div id='availabilityestimate' > </div> 
   	</div>
-  	
-  	<div id='availabilityestimate' />
   	
   	<footer>
 	Copyright details

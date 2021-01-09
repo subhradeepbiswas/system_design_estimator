@@ -7,7 +7,9 @@
 	<div class = 'content'>
 		<h3><u>Availability Estimates </u></h3>
 		<P>  
-			Availability Calculation formula = ${availability.calculationDetails} 
+			Availability Calculation formula = <br>
+			${availability.calculationDetails} 
+			<br>
 			<br>
 			Availability = ${availability.result}
 			<br> 
