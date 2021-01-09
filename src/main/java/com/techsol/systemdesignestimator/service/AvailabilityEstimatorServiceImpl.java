@@ -27,13 +27,13 @@ public class AvailabilityEstimatorServiceImpl implements AvailabilityEstimatorSe
 		calculationDetails.append("X 100");
 		result = begin == false ? temp * 100.00: 0.0000;
 		
-		long outageInSec = (long) (365.00000000000000*24.00000000000000*3600.00000000000000*(100-result)/100.00000000000000);
+		long outageInSec = (long) ((double) (365.00*24.00*36.00) * (double) (100.00000000000000-result));
 		
 		long mins = outageInSec/60;
 		int secs = 0;
 		if (mins > 0) {
 			secs = (int) (outageInSec%60);
-		}
+		} 
 		
 		long hrs = mins/60;
 		mins = mins%60;
@@ -44,7 +44,7 @@ public class AvailabilityEstimatorServiceImpl implements AvailabilityEstimatorSe
 		} else if (mins > 0) {
 			outage.append(mins+" Mins "+secs+" Secs");
 		} else {
-			outage.append(secs+" Secs");
+			outage.append(outageInSec+" Secs");
 		}
 		
 		Availability availability = new Availability(result, calculationDetails.toString(), outage.toString());
