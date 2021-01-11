@@ -17,7 +17,7 @@
 			}
 			    
 	</script>
-	<div class = 'content'>
+	<div >
 		<h3><u>Calculate # of Users that can be served simultaneously for below specifications</u></h3>
 		# of Servers = <input id="servers" name="servers" type="number" min="1" value=50>  <br>
 		Avg. Capacity of Servers = <input id="cores" name="cores" type="number" min="1" value=32> CPU cores <br> 
@@ -28,9 +28,9 @@
 		However, for E-commerce sites the rule of thumb is one click per minute (i.e. 45 seconds)] </i> <br>
 		<br>
 		<input class="button" type="submit" value="Calculate" onClick="submitServerDetails()"/>
+		<br>
+		<div id='userestimate'> </div>
 	</div>
-	
-	<div id='userestimate' />
 	
 </body>
 </html>

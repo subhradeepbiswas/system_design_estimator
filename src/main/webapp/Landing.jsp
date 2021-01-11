@@ -11,11 +11,11 @@
 <title>System Design Estimator</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"  href="/landing.css">
-
+<link rel="shortcut icon" type="image/x-icon" href="PairDesignlogo.png" />
 </head>
 <body>
 	<header>
-	    <h1><u>Welcome to System Design Estimator</u></h1>
+	    <h1><u>Welcome to System Design Estimator </u> </h1>
 	    <!-- <span class="menu"><i class="material-icons" style="font-size: 48px;">menu</i></span>  -->
 	</header>
 	<div class='content'>
@@ -25,6 +25,7 @@
 	    <input class="button" type="button" value="Hardware Estimates" name="HardwareEstimates"
 	     onclick="openPage('HardwareEstimator.jsp')"/>
 	    </p>
+	    <br>
 	    <p>	
 	    <h3>This service estimates <br>
 	    (1) the number of servers you would need to guarantee performance while serving any number of QPS (Read requests) <br>
@@ -34,7 +35,7 @@
 		</p>
 	    <br>
 	    <p>	
-	    <h3>This service estimates the number of instances for every service to meet the system's availability requirement </h3>
+	    <h3>This service estimates the overall availability of a system based on its service specifications</h3>
 	    <input class="button" type="button" value="Estimate Availability" name="EnsureAvailability"
 	     onclick="openPage('EstimateAvailability.jsp')" />
 		</p>

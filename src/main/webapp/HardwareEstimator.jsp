@@ -12,6 +12,7 @@
 	<title>Hardware Estimator</title>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet"  href="/landing.css">
+	<link rel="shortcut icon" type="image/x-icon" href="PairDesignlogo.png" />
 	
 	<SCRIPT language="javascript">
 
@@ -261,13 +262,13 @@
     Cache Requirement: <input id="cachePercent" name="cachePercent" type="number" min="0" max="100" value=20> % of the total read requests to be cached
     <div class="error"><p id="range_error"></p></div>
     <br>
-    <br>
     <input class="button" type="submit" value="Calculate" onclick="submitDetails('contentTable')"/>
 	<!--  </form> -->
 	<br>
+	<div id="results"> </div>
 	</div>
     
-    <div id="results" />
+    
 	
 	<footer>
 	Copyright details

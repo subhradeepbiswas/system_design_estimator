@@ -2,7 +2,7 @@
     pageEncoding="UTF-8" isELIgnored="false" session="true" %>
 <html>
 <body>
-	<div class='content'>
+	<div >
 		<h3><u>Traffic estimates </u></h3>
 		<P>  ${traffic.writeReqFormula} 
 			<br>
@@ -36,8 +36,5 @@
 		</P>
 	</div>
 	
-	<footer>
-		Copyright details
-	</footer>
 </body>
 </html>

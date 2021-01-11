@@ -12,6 +12,7 @@
 <title>Performance Estimator</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"  href="/landing.css">
+<link rel="shortcut icon" type="image/x-icon" href="PairDesignlogo.png" />
 	
 	<SCRIPT language="javascript">
 		$(function(){
@@ -48,6 +49,7 @@
 		</form>
 		<br>
 		For better understanding on this topic, refer to : <a href="https://servebolt.com/articles/calculate-how-many-simultaneous-website-visitors/"> Article by Erlend Eide, CEO of Servebolt </a>
+		<br>
 		<br>
 		<div id="targetpage" > </div>
 		

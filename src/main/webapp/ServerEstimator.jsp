@@ -19,7 +19,7 @@
 			}
 			    
 	</script>
-	<div class = 'content'>
+	<div >
 		<h3><u>Calculate # of Servers required to best serve your visitors</u></h3>
 
 		Every request to the website on average uses (Avg. Processing Time) <input id="reqtime" name="reqtime" type="number" min="0" value=0.323> seconds of CPU time <br>
@@ -30,10 +30,9 @@
 		Replication factor (To ensure service durability): <input id="repfactor" name="repfactor" type="number" min="0" value=3><br>
 		<br>
 		<input class="button" type="submit" value="Calculate" onClick="submitLoadDetails()"/>
+		<br>
+		<div id='serverestimate'> </div>
 	</div>
-	
-	<div id='serverestimate' />
-	
 	
 </body>
 </html>

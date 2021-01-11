@@ -12,6 +12,7 @@
 	<title>Availability Estimator</title>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet"  href="/landing.css">
+	<link rel="shortcut icon" type="image/x-icon" href="PairDesignlogo.png" />
 	
 	<SCRIPT language="javascript">
 
@@ -173,7 +174,7 @@
   	<br>
 	For better understanding on this topic, refer to : <a href="https://www.eventhelix.com/RealtimeMantra/FaultHandling/system_reliability_availability.htm"> System Reliability and Availability </a>
 	<br>
-	
+	<br>
 	<div id='availabilityestimate' > </div> 
   	</div>
   	

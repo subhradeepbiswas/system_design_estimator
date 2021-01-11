@@ -4,7 +4,7 @@
 <html>
 
 <body>
-	<div class = 'content'>
+	<div>
 		<h3><u>Availability Estimates </u></h3>
 		<P>  
 			Availability Calculation formula = <br>

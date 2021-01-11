@@ -4,7 +4,7 @@
 <html>
 
 <body>
-	<div class = 'content'>
+	<div >
 		<h3><u>User estimates </u></h3>
 		<P>  ${user.formula} 
 			 <br>

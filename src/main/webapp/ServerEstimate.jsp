@@ -4,7 +4,7 @@
 <html>
 
 <body>
-	<div class = 'content'>
+	<div >
 		<h3><u>Server estimates </u></h3>
 		<P>  ${server.formula} 
 			 <br>
