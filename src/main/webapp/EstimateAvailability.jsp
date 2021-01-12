@@ -179,7 +179,7 @@
   	</div>
   	
   	<footer>
-	Copyright details
+	<center> Copyright &#169; 2021 Subhradeep Biswas </center>
 	</footer>
 	
 	<!--

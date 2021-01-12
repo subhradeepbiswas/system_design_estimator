@@ -268,10 +268,8 @@
 	<div id="results"> </div>
 	</div>
     
-    
-	
-	<footer>
-	Copyright details
+    <footer>
+	<center> Copyright &#169; 2021 Subhradeep Biswas </center>
 	</footer>
 	
 </body>
